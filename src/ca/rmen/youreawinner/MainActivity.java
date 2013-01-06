@@ -9,7 +9,6 @@ import android.content.SharedPreferences.Editor;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -25,12 +24,11 @@ public class MainActivity extends Activity {
 	private ImageView mButton;
 	private String[] mWinnerPhrases;
 	private Random mRandom;
-	private int mScore;
+	private long mScore;
 	private SharedPreferences mSharedPreferences;
 	private SoundPool mSoundPool;
 	private int mButtonPressSoundPoolId;
 	private int mButtonReleaseSoundPoolId;
-	private Handler mHandler;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -47,7 +45,6 @@ public class MainActivity extends Activity {
 		mButtonReleaseSoundPoolId = mSoundPool.load(this, R.raw.button_release,
 				1);
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
-		mHandler = new Handler();
 	}
 
 	@Override
@@ -55,7 +52,7 @@ public class MainActivity extends Activity {
 		super.onResume();
 		mSharedPreferences = getSharedPreferences(PREFERENCES_NAME,
 				Context.MODE_PRIVATE);
-		mScore = mSharedPreferences.getInt(PREF_SCORE, 0);
+		mScore = mSharedPreferences.getLong(PREF_SCORE, 0);
 		mTextViewScore.setText(String.valueOf(mScore));
 	}
 
@@ -76,7 +73,7 @@ public class MainActivity extends Activity {
 				int scoreIncrease = mRandom.nextInt(400);
 				mScore += 100 + scoreIncrease;
 				Editor editor = mSharedPreferences.edit();
-				editor.putInt(PREF_SCORE, mScore);
+				editor.putLong(PREF_SCORE, mScore);
 				editor.commit();
 				mTextViewScore.setText(String.valueOf(mScore));
 				break;
