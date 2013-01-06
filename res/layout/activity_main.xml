@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#000"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/score_zone"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+        
+	    <TextView
+	        android:id="@+id/score_label"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="20sp"
+	        android:textColor="#fff"
+	        android:paddingRight="20dp"
+	        android:text="@string/score_label"
+	        />
+	    <TextView
+	        android:id="@+id/score_value"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:textSize="40sp"
+	        android:textColor="#ff0"
+	        android:text=""
+	        />
+    </LinearLayout>
+    
+    <TextView
+        android:id="@+id/winner_text"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:textSize="20sp"
+        android:textColor="#f8f"
+        android:text=""
+        android:layout_weight="2"
+        
+        tools:context=".MainActivity" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:src="@drawable/button"
+        android:clickable="true"
+        android:contentDescription="@string/button_description"
+        android:onClick="onButtonClicked"/>
+
+</LinearLayout>

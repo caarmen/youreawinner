@@ -1,0 +1,20 @@
+<resources>
+
+    <string name="app_name">You\'re a Winner!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">You\'re a Winner!</string>
+    <string name="button_description">Press here</string>
+    <string name="score_label">Score:</string>
+    
+    <string-array name="winner_phrases">
+       <item>You\'re a winner!</item>
+       <item>You\'re cool!</item>
+       <item>Awesome!</item>
+       <item>You rock!</item>
+       <item>Everybody wants to be like you!</item>
+       <item>Cool!</item>
+       <item>Good job!</item>
+       <item>Keep it up!</item>
+    </string-array>
+
+</resources>
