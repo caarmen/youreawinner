@@ -3,12 +3,12 @@ package ca.rmen.youreawinner;
 import java.util.Random;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-	private static final String PREFERENCES_NAME = "ca.rmen.youreawinner";
 	private static final String PREF_SCORE = "score";
 	private static final String KEY_WINNER_TEXT = "winner_text";
 	private TextView mTextViewWinnerText;
@@ -50,8 +49,8 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		mSharedPreferences = getSharedPreferences(PREFERENCES_NAME,
-				Context.MODE_PRIVATE);
+		mSharedPreferences = PreferenceManager
+				.getDefaultSharedPreferences(this);
 		mScore = mSharedPreferences.getLong(PREF_SCORE, 0);
 		mTextViewScore.setText(String.valueOf(mScore));
 	}
