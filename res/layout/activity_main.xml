@@ -44,12 +44,12 @@
         tools:context=".MainActivity" />
 
     <ImageView
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="6"
         android:src="@drawable/button"
         android:clickable="true"
-        android:contentDescription="@string/button_description"
-        android:onClick="onButtonClicked"/>
+        android:contentDescription="@string/button_description"/>
 
 </LinearLayout>
