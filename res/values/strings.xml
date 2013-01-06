@@ -1,7 +1,6 @@
 <resources>
 
     <string name="app_name">You\'re a Winner!</string>
-    <string name="menu_settings">Settings</string>
     <string name="title_activity_main">You\'re a Winner!</string>
     <string name="button_description">Press here</string>
     <string name="score_label">Score:</string>
@@ -17,6 +16,27 @@
        <item>Keep it up!</item>
        <item>A+!</item>
        <item>Perfect!</item>
+       <item>You are a strong, confident woman.</item>
+       <item>Kudos!</item>
+       <item>High five!</item>
+       <item>Great work!</item>
+       <item>Not bad!</item>
+       <item>Excellent!</item>
+       <item>You are the queen of the birds!</item>
+       <item>Glorious!</item>
+       <item>Wonderful!</item>
+       <item>Exceptional!</item>
+       <item>Extraordinary!</item>
+       <item>Total respect!</item>
+       <item>Congratulations!</item>
+       <item>You go girl!</item>
+       <item>Wow!</item>
+       <item>Amazing!</item>
+       <item>You kick some serious booty!</item>
+       <item>Gnarly dude!</item>
+       <item>Impressive!</item>
+       <item>Mind blowing!</item>
+       <item>Way to go!</item>
     </string-array>
 
 </resources>
