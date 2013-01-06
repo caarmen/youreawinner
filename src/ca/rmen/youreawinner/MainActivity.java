@@ -67,7 +67,12 @@ public class MainActivity extends Activity {
 			case MotionEvent.ACTION_UP:
 				mSoundPool.play(mButtonReleaseSoundPoolId, 1f, 1f, 1, 0, 1f);
 				int winnerPhraseIndex = mRandom.nextInt(mWinnerPhrases.length);
-				mTextViewWinnerText.setText(mWinnerPhrases[winnerPhraseIndex]);
+				// The winner text is in italic, and on some devices (tatoo)
+				// the last letter is cut off on the upper right. Adding
+				// paddingRight in the layout xml does not fix this. Adding
+				// a space to the end of the text here does.
+				mTextViewWinnerText.setText(" "
+						+ mWinnerPhrases[winnerPhraseIndex] + " ");
 				int scoreIncrease = mRandom.nextInt(400);
 				mScore += 100 + scoreIncrease;
 				Editor editor = mSharedPreferences.edit();
