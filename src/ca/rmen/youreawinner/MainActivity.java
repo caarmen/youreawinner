@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,6 +14,7 @@ public class MainActivity extends Activity {
 
 	private static final String PREFERENCES_NAME = "ca.rmen.youreawinner";
 	private static final String PREF_SCORE = "score";
+	private static final String KEY_WINNER_TEXT = "winner_text";
 	private TextView mTextViewWinnerText;
 	private TextView mTextViewScore;
 	private String[] mWinnerPhrases;
@@ -30,16 +30,15 @@ public class MainActivity extends Activity {
 		mTextViewScore = (TextView) findViewById(R.id.score_value);
 		mWinnerPhrases = getResources().getStringArray(R.array.winner_phrases);
 		mRandom = new Random();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
 		mSharedPreferences = getSharedPreferences(PREFERENCES_NAME,
 				Context.MODE_PRIVATE);
 		mScore = mSharedPreferences.getInt(PREF_SCORE, 0);
 		mTextViewScore.setText(String.valueOf(mScore));
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
 	}
 
 	public void onButtonClicked(View v) {
@@ -51,6 +50,19 @@ public class MainActivity extends Activity {
 		editor.putInt(PREF_SCORE, mScore);
 		editor.commit();
 		mTextViewScore.setText(String.valueOf(mScore));
+	}
+
+	@Override
+	protected void onRestoreInstanceState(Bundle savedInstanceState) {
+		super.onRestoreInstanceState(savedInstanceState);
+		CharSequence winnerText = savedInstanceState.getString(KEY_WINNER_TEXT);
+		mTextViewWinnerText.setText(winnerText);
+	}
+
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		outState.putCharSequence(KEY_WINNER_TEXT, mTextViewWinnerText.getText());
+		super.onSaveInstanceState(outState);
 	}
 
 }
