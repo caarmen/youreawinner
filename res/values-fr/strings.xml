@@ -1,0 +1,42 @@
+<resources>
+
+    <string name="app_name">T\'es un Winner!</string>
+    <string name="title_activity_main">T\'es un Winner!</string>
+    <string name="button_description">Appuyez ici</string>
+    <string name="score_label">Score:</string>
+    
+    <string-array name="winner_phrases">
+       <item>T\'es un winner !</item>
+       <item>T\'es cool !</item>
+       <item>Super !</item>
+       <item>Génial !</item>
+       <item>Tout le monde veut être comme toi !</item>
+       <item>Cool !</item>
+       <item>Bravo !</item>
+       <item>Continue comme ça !</item>
+       <item>20/20 !</item>
+       <item>Parfait !</item>
+       <item>Vous êtes une femme forte et déterminée.</item>
+       <item>Chapeau bas !</item>
+       <item>Tope là !</item>
+       <item>Bien joué !</item>
+       <item>Pas mal !</item>
+       <item>Excellent !</item>
+       <item>Vous êtes le phoenix des hôtes de ces bois</item>
+       <item>Magnifique !</item>
+       <item>Merveilleux !</item>
+       <item>Exceptionnel !</item>
+       <item>Extraordinaire !</item>
+       <item>Total respect !</item>
+       <item>Felicitations !</item>
+       <item>Vas-y ma cocotte !</item>
+       <item>Ouah !</item>
+       <item>Incroyable !</item>
+       <item>Tu déchires !</item>
+       <item>T\'es un cador !</item>
+       <item>Formidable !</item>
+       <item>Époustouflant !</item>
+       <item>Bien ouéj !</item>
+    </string-array>
+
+</resources>
