@@ -22,6 +22,8 @@
     <string name="app_name">You\'re a Winner!</string>
     <string name="title_activity_main">You\'re a Winner!</string>
     <string name="button_description">Press here</string>
+    <string name="share_label">Share your score</string>
+    <string name="share_text">I\'m a Winner!  I just scored %1s points!\nhttps://play.google.com/store/apps/details?id=ca.rmen.youreawinner</string>
     <string name="score_label">Score:</string>
     
     <string-array name="winner_phrases">

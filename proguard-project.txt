@@ -18,3 +18,6 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-keepclassmembers class ca.rmen.youreawinner.MainActivity{
+   public void onShareIconClicked(android.view.View);
+}

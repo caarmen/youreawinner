@@ -21,6 +21,7 @@ package ca.rmen.youreawinner;
 import java.util.Random;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.media.AudioManager;
@@ -120,5 +121,16 @@ public class MainActivity extends Activity {
 	protected void onSaveInstanceState(Bundle outState) {
 		outState.putCharSequence(KEY_WINNER_TEXT, mTextViewWinnerText.getText());
 		super.onSaveInstanceState(outState);
+	}
+
+	public void onShareIconClicked(View v) {
+		Intent intent = new Intent(Intent.ACTION_SEND);
+		intent.setType("text/plain");
+		String shareText = getString(R.string.share_text, mScore);
+		intent.putExtra(Intent.EXTRA_TEXT, shareText);
+		Intent chooser = Intent.createChooser(intent,
+				getString(R.string.share_label));
+		startActivity(chooser);
+
 	}
 }
