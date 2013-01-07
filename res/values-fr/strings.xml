@@ -23,7 +23,7 @@
     <string name="title_activity_main">T\'es un Winner!</string>
     <string name="button_description">Appuie ici</string>
     <string name="share_label">Partage ton score</string>
-    <string name="share_text">Je suis un Winner !  J\'ai gagné %1s points!\nhttps://play.google.com/store/apps/details?id=ca.rmen.youreawinner</string>
+    <string name="share_text">Je suis un Winner !  J\'ai gagné %1s points !\nhttps://play.google.com/store/apps/details?id=ca.rmen.youreawinner</string>
     <string name="score_label">Score :</string>
     
     <string-array name="winner_phrases">
