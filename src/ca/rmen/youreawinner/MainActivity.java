@@ -1,3 +1,21 @@
+/*
+ * Copyright 2013 Carmen Alvarez
+ *
+ * This file is part of You're a Winner!.
+ *
+ * You're a Winner! is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * You're a Winner! is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with You're a Winner!.  If not, see <http://www.gnu.org/licenses/>.
+ */
 package ca.rmen.youreawinner;
 
 import java.util.Random;
@@ -71,13 +89,20 @@ public class MainActivity extends Activity {
 						+ mWinnerPhrases[winnerPhraseIndex] + " ");
 				int scoreIncrease = mRandom.nextInt(400);
 				mScore += 100 + scoreIncrease;
+				mTextViewScore.setText(String.valueOf(mScore));
+				// Saving the score preference only in onPause or
+				// onSaveInstanceState (instead of each time here) doesn't
+				// improve audio latency. You can hear audio latency on the down
+				// action as well, which doesn't do any writes to the disk.
 				Editor editor = mSharedPreferences.edit();
 				editor.putLong(PREF_SCORE, mScore);
 				editor.commit();
-				mTextViewScore.setText(String.valueOf(mScore));
 				break;
 			case MotionEvent.ACTION_DOWN:
 				mSoundPool.play(mButtonPressSoundPoolId, 1f, 1f, 1, 0, 1f);
+				break;
+			default:
+				// Ignore
 				break;
 			}
 			return false;
