@@ -49,13 +49,6 @@
             android:textColor="#ff0"
             android:textSize="40sp" />
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:contentDescription="@string/share_label"
-            android:onClick="onShareIconClicked"
-            android:src="@drawable/ic_menu_share" />
     </LinearLayout>
 
     <TextView
