@@ -24,7 +24,7 @@
     <string name="button_description">Appuie ici</string>
     <string name="share_label">Partage ton score</string>
     <string name="sound_on_label">Son : activé</string>
-    <string name="sound_off_label">Son : desactivé</string>
+    <string name="sound_off_label">Son : désactivé</string>
     <string name="share_text">Je suis un Winner !  J\'ai gagné %1s points !\nhttps://play.google.com/store/apps/details?id=ca.rmen.youreawinner</string>
     <string name="score_label">Score :</string>
     
