@@ -39,6 +39,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
 	private static final String PREF_SCORE = "score";
+	private static final String PREF_SOUND = "sound";
 	private static final String KEY_WINNER_TEXT = "winner_text";
 	private TextView mTextViewWinnerText;
 	private TextView mTextViewScore;
@@ -50,6 +51,7 @@ public class MainActivity extends Activity {
 	private SoundPool mSoundPool;
 	private int mButtonPressSoundPoolId;
 	private int mButtonReleaseSoundPoolId;
+	private boolean mSoundEnabled;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -66,14 +68,15 @@ public class MainActivity extends Activity {
 		mButtonReleaseSoundPoolId = mSoundPool.load(this, R.raw.button_release,
 				1);
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
+		mSharedPreferences = PreferenceManager
+				.getDefaultSharedPreferences(this);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		mSharedPreferences = PreferenceManager
-				.getDefaultSharedPreferences(this);
 		mScore = mSharedPreferences.getLong(PREF_SCORE, 0);
+		mSoundEnabled = mSharedPreferences.getBoolean(PREF_SOUND, true);
 		mTextViewScore.setText(String.valueOf(mScore));
 	}
 
@@ -83,7 +86,9 @@ public class MainActivity extends Activity {
 		public boolean onTouch(View view, MotionEvent motionEvent) {
 			switch (motionEvent.getAction()) {
 			case MotionEvent.ACTION_UP:
-				mSoundPool.play(mButtonReleaseSoundPoolId, 1f, 1f, 1, 0, 1f);
+				if (mSoundEnabled)
+					mSoundPool
+							.play(mButtonReleaseSoundPoolId, 1f, 1f, 1, 0, 1f);
 				int winnerPhraseIndex = mRandom.nextInt(mWinnerPhrases.length);
 				// The winner text is in italic, and on some devices (tatoo)
 				// the last letter is cut off on the upper right. Adding
@@ -103,7 +108,8 @@ public class MainActivity extends Activity {
 				editor.commit();
 				break;
 			case MotionEvent.ACTION_DOWN:
-				mSoundPool.play(mButtonPressSoundPoolId, 1f, 1f, 1, 0, 1f);
+				if (mSoundEnabled)
+					mSoundPool.play(mButtonPressSoundPoolId, 1f, 1f, 1, 0, 1f);
 				break;
 			default:
 				// Ignore
@@ -121,10 +127,25 @@ public class MainActivity extends Activity {
 	}
 
 	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+		MenuItem soundMenuItem = menu.findItem(R.id.menu_sound);
+		updateSoundMenuItem(soundMenuItem);
+		return super.onPrepareOptionsMenu(menu);
+	}
+
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_share:
+			// Share our winning score with the world
 			shareScore();
+			return true;
+		case R.id.menu_sound:
+			// Toggle sound on/off
+			mSoundEnabled = !mSoundEnabled;
+			mSharedPreferences.edit().putBoolean(PREF_SOUND, mSoundEnabled)
+					.commit();
+			updateSoundMenuItem(item);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
@@ -144,6 +165,10 @@ public class MainActivity extends Activity {
 		super.onSaveInstanceState(outState);
 	}
 
+	/**
+	 * Bring up an intent chooser so the user can choose an app to use to share
+	 * his winning score (with a link to the app on the play store of course).
+	 */
 	private void shareScore() {
 		Intent intent = new Intent(Intent.ACTION_SEND);
 		intent.setType("text/plain");
@@ -153,5 +178,21 @@ public class MainActivity extends Activity {
 				getString(R.string.share_label));
 		startActivity(chooser);
 
+	}
+
+	/**
+	 * The sound menu/action item should show the current state of the sound:
+	 * show the "on" icon and label if sound is enabled. Show the "off" icon and
+	 * label if sound is disabled.
+	 */
+	private void updateSoundMenuItem(MenuItem item) {
+		mSoundEnabled = mSharedPreferences.getBoolean(PREF_SOUND, true);
+		if (mSoundEnabled) {
+			item.setIcon(R.drawable.ic_lock_ringer_on);
+			item.setTitle(R.string.sound_on_label);
+		} else {
+			item.setIcon(R.drawable.ic_lock_ringer_off);
+			item.setTitle(R.string.sound_off_label);
+		}
 	}
 }

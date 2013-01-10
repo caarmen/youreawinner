@@ -25,5 +25,12 @@
         android:showAsAction="ifRoom"
         android:title="@string/share_label">
     </item>
+    
+    <item
+        android:id="@+id/menu_sound"
+        android:icon="@drawable/ic_lock_ringer_on"
+        android:showAsAction="ifRoom"
+        android:title="@string/sound_on_label">
+    </item>
 
 </menu>
