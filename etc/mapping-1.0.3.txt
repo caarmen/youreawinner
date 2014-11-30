@@ -1,0 +1,36 @@
+ca.rmen.youreawinner.MainActivity -> ca.rmen.youreawinner.MainActivity:
+    android.widget.TextView mTextViewWinnerText -> a
+    android.widget.TextView mTextViewScore -> b
+    android.widget.ImageView mButton -> c
+    java.lang.String[] mWinnerPhrases -> d
+    java.util.Random mRandom -> e
+    long mScore -> f
+    android.content.SharedPreferences mSharedPreferences -> g
+    android.media.SoundPool mSoundPool -> h
+    int mButtonPressSoundPoolId -> i
+    int mButtonReleaseSoundPoolId -> j
+    boolean mSoundEnabled -> k
+    android.view.View$OnTouchListener mButtonListener -> l
+    void onCreate(android.os.Bundle) -> onCreate
+    void onResume() -> onResume
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onPrepareOptionsMenu(android.view.Menu) -> onPrepareOptionsMenu
+    boolean onOptionsItemSelected(android.view.MenuItem) -> onOptionsItemSelected
+    void onRestoreInstanceState(android.os.Bundle) -> onRestoreInstanceState
+    void onSaveInstanceState(android.os.Bundle) -> onSaveInstanceState
+    void shareScore() -> a
+    void updateSoundMenuItem(android.view.MenuItem) -> a
+    boolean access$000(ca.rmen.youreawinner.MainActivity) -> a
+    int access$100(ca.rmen.youreawinner.MainActivity) -> b
+    android.media.SoundPool access$200(ca.rmen.youreawinner.MainActivity) -> c
+    java.lang.String[] access$300(ca.rmen.youreawinner.MainActivity) -> d
+    java.util.Random access$400(ca.rmen.youreawinner.MainActivity) -> e
+    android.widget.TextView access$500(ca.rmen.youreawinner.MainActivity) -> f
+    long access$600(ca.rmen.youreawinner.MainActivity) -> g
+    long access$602(ca.rmen.youreawinner.MainActivity,long) -> a
+    android.widget.TextView access$700(ca.rmen.youreawinner.MainActivity) -> h
+    android.content.SharedPreferences access$800(ca.rmen.youreawinner.MainActivity) -> i
+    int access$900(ca.rmen.youreawinner.MainActivity) -> j
+ca.rmen.youreawinner.MainActivity$1 -> ca.rmen.youreawinner.a:
+    ca.rmen.youreawinner.MainActivity this$0 -> a
+    boolean onTouch(android.view.View,android.view.MotionEvent) -> onTouch
