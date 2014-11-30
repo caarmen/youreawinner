@@ -10,6 +10,20 @@ android {
         targetSdkVersion 15
     }
 
+    if(project.hasProperty("keyStore")) {
+        signingConfigs {
+            release {
+                storeFile file(project.keyStore)
+                storePassword project.keyStorePassword
+                keyAlias project.keyAlias
+                keyPassword project.keyAliasPassword
+            }
+        }
+        android.buildTypes.release.signingConfig =signingConfigs.release
+    } else {
+        android.buildTypes.release.signingConfig = null
+    }
+    
     buildTypes {
         release {
             minifyEnabled true
