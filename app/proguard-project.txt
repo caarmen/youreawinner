@@ -21,3 +21,4 @@
 -keepclassmembers class ca.rmen.youreawinner.MainActivity{
    public void onShareIconClicked(android.view.View);
 }
+-dontobfuscate
