@@ -22,3 +22,5 @@
    public void onShareIconClicked(android.view.View);
 }
 -dontobfuscate
+-optimizations !code/allocation/variable
+-keepattributes Signature,*Annotation*
