@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "ca.rmen.youreawinner"
-        minSdkVersion 9
+        minSdkVersion 14
         targetSdkVersion 26
         versionCode 110
         versionName "1.1.0"
@@ -43,8 +43,10 @@ android {
 }
 repositories {
     jcenter()
+    google()
 }
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile 'com.android.support:appcompat-v7:26.1.0'
     kapt "com.android.databinding:compiler:2.3.3"
 }

@@ -18,7 +18,6 @@
  */
 package ca.rmen.youreawinner
 
-import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences
 import android.databinding.DataBindingUtil
@@ -28,6 +27,7 @@ import android.media.SoundPool
 import android.os.Build
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MotionEvent
@@ -35,7 +35,7 @@ import android.view.View
 import ca.rmen.youreawinner.databinding.ActivityMainBinding
 import java.util.*
 
-class MainActivity : Activity() {
+class MainActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityMainBinding
 
     private var mWinnerPhrases: Array<out String> = arrayOf()
