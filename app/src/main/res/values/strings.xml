@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 
-  Copyright 2013 Carmen Alvarez
+  Copyright 2013, 2017 Carmen Alvarez
  
   This file is part of You're a Winner!.
  
@@ -27,7 +27,12 @@
     <string name="sound_off_label">Sound: off</string>
     <string name="share_text">I\'m a Winner!  I just scored %1s points!\nhttps://play.google.com/store/apps/details?id=ca.rmen.youreawinner</string>
     <string name="score_label">Score:</string>
-    
+    <!-- The winner text is in italic, and on some devices
+         the last letter is cut off on the upper right. Adding
+         paddingRight in the layout xml does not fix this. Adding
+         a space to the end of the text here does.  -->
+    <string name="winner_text" translatable="false"> %s </string>
+
     <string-array name="winner_phrases">
        <item>You\'re a winner!</item>
        <item>You\'re cool!</item>

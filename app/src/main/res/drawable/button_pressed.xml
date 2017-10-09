@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  Copyright 2017 Carmen Alvarez
+
+  This file is part of You're a Winner!.
+
+  You're a Winner! is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 2 of the License, or
+  (at your option) any later version.
+
+  You're a Winner! is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with You're a Winner!.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="bottom"
+        android:bottom="0dp"
+        android:top="24dp">
+        <shape
+            android:shape="oval"
+            android:useLevel="true">
+            <size
+                android:width="128dp"
+                android:height="80dp" />
+            <gradient
+                android:angle="90"
+                android:endColor="#000"
+                android:centerX="0.5"
+                android:centerY="0.3"
+                android:centerColor="#888"
+                android:startColor="#FFF"
+                android:type="linear" />
+        </shape>
+
+    </item>
+    <item
+        android:top="16dp"
+        android:bottom="24dp"
+        android:gravity="bottom"
+        android:left="8dp"
+        android:right="8dp">
+        <shape
+            android:shape="oval">
+            <solid android:color="#600"/>
+            <size
+                android:width="112dp"
+                android:height="64dp" />
+        </shape>
+
+    </item>
+    <item
+        android:bottom="26dp"
+        android:gravity="bottom"
+        android:left="4dp"
+        android:right="4dp"
+        android:top="14dp">
+        <shape android:shape="oval">
+            <size
+                android:width="120dp"
+                android:height="64dp" />
+            <gradient
+                android:angle="90"
+                android:endColor="#400"
+                android:gradientRadius="250"
+                android:startColor="#F00"
+                android:type="linear" />
+        </shape>
+    </item>
+</layer-list>

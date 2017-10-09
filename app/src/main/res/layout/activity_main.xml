@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-  Copyright 2013 Carmen Alvarez
+<?xml version="1.0" encoding="utf-8"?><!--
+  Copyright 2013, 2017 Carmen Alvarez
  
   This file is part of You're a Winner!.
  
@@ -17,58 +16,73 @@
   You should have received a copy of the GNU General Public License
   along with You're a Winner!.  If not, see <http://www.gnu.org/licenses/>.
 -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#000"
-    android:gravity="center_horizontal"
-    android:orientation="vertical" >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:id="@+id/score_zone"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_vertical"
-        android:orientation="horizontal" >
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000">
 
         <TextView
             android:id="@+id/score_label"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingRight="20dp"
+            android:layout_height="0dp"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:text="@string/score_label"
             android:textColor="#fff"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/winner_text"
+            app:layout_constraintEnd_toStartOf="@+id/score_value"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_weight="1" />
 
         <TextView
             android:id="@+id/score_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:textColor="#ff0"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/winner_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/score_label"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="123" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/winner_text"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal"
+            android:freezesText="true"
+            android:textColor="#f8f"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/score_label"
+            app:layout_constraintVertical_weight="1"
+            tools:text="You go girl! Here is a very long text of a positive affirmation" />
 
-    <TextView
-        android:id="@+id/winner_text"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_horizontal"
-        android:textColor="#f8f"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        tools:context=".MainActivity" />
+        <ImageView
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:clickable="true"
+            android:contentDescription="@string/button_description"
+            android:src="@drawable/button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/winner_text"
+            app:layout_constraintVertical_weight="3" />
 
-    <ImageView
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="3"
-        android:clickable="true"
-        android:contentDescription="@string/button_description"
-        android:src="@drawable/button" />
-
-</LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

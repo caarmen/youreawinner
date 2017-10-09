@@ -1,13 +1,20 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 16
-    buildToolsVersion "21.1.1"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         applicationId "ca.rmen.youreawinner"
-        minSdkVersion 4
-        targetSdkVersion 15
+        minSdkVersion 14
+        targetSdkVersion 26
+        versionCode 110
+        versionName "1.1.0"
+        // setting vectorDrawables.useSupportLibrary = true means pngs won't be generated at
+        // build time: http://android-developers.blogspot.fr/2016/02/android-support-library-232.html
+        vectorDrawables.useSupportLibrary = true
     }
 
     if(project.hasProperty("keyStore")) {
@@ -23,11 +30,27 @@ android {
     } else {
         android.buildTypes.release.signingConfig = null
     }
-    
+
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
         }
     }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+repositories {
+    jcenter()
+    google()
+}
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    kapt "com.android.databinding:compiler:2.3.3"
 }

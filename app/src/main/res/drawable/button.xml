@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- 
-  Copyright 2013 Carmen Alvarez
+  Copyright 2013, 2017 Carmen Alvarez
  
   This file is part of You're a Winner!.
  
@@ -18,6 +18,6 @@
   along with You're a Winner!.  If not, see <http://www.gnu.org/licenses/>.
 --> 
 <selector xmlns:android="http://schemas.android.com/apk/res/android" >
-   <item android:state_pressed="true" android:drawable="@drawable/button_pressed"></item> 
-   <item android:state_enabled="true" android:drawable="@drawable/button_normal"></item> 
+   <item android:state_pressed="true" android:drawable="@drawable/button_pressed"/>
+   <item android:state_enabled="true" android:drawable="@drawable/button_normal"/>
 </selector>
