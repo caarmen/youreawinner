@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 16
-    buildToolsVersion "21.1.1"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         applicationId "ca.rmen.youreawinner"
         minSdkVersion 4
-        targetSdkVersion 15
+        targetSdkVersion 26
     }
 
     if(project.hasProperty("keyStore")) {
@@ -23,7 +23,7 @@ android {
     } else {
         android.buildTypes.release.signingConfig = null
     }
-    
+
     buildTypes {
         release {
             minifyEnabled true
