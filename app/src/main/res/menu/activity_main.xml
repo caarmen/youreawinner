@@ -22,14 +22,14 @@
 
     <item
         android:id="@+id/menu_share"
-        android:icon="@drawable/ic_menu_share"
+        android:icon="@drawable/ic_share"
         app:showAsAction="ifRoom"
         android:title="@string/share_label">
     </item>
     
     <item
         android:id="@+id/menu_sound"
-        android:icon="@drawable/ic_lock_ringer_on"
+        android:icon="@drawable/ic_volume_on"
         app:showAsAction="ifRoom"
         android:title="@string/sound_on_label">
     </item>

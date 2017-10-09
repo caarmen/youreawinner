@@ -12,6 +12,9 @@ android {
         targetSdkVersion 26
         versionCode 110
         versionName "1.1.0"
+        // setting vectorDrawables.useSupportLibrary = true means pngs won't be generated at
+        // build time: http://android-developers.blogspot.fr/2016/02/android-support-library-232.html
+        vectorDrawables.useSupportLibrary = true
     }
 
     if(project.hasProperty("keyStore")) {

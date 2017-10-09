@@ -135,10 +135,10 @@ class MainActivity : AppCompatActivity() {
     private fun updateSoundMenuItem(item: MenuItem) {
         mSoundEnabled = mSharedPreferences.getBoolean(PREF_SOUND, true)
         if (mSoundEnabled) {
-            item.setIcon(R.drawable.ic_lock_ringer_on)
+            item.setIcon(R.drawable.ic_volume_on)
             item.setTitle(R.string.sound_on_label)
         } else {
-            item.setIcon(R.drawable.ic_lock_ringer_off)
+            item.setIcon(R.drawable.ic_volume_off)
             item.setTitle(R.string.sound_off_label)
         }
     }
